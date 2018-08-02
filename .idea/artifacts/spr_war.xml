@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="spr:war">
+    <output-path>$PROJECT_DIR$/spr/target</output-path>
+    <root id="archive" name="spr.war">
+      <element id="artifact" artifact-name="spr:war exploded" />
+    </root>
+  </artifact>
+</component>

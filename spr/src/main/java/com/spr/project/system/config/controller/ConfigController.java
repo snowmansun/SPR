@@ -140,4 +140,12 @@ public class ConfigController extends BaseController
         return uniqueFlag;
     }
 
+    /**
+     *
+     */
+    public void test(){
+
+        System.out.println("123");
+    }
+
 }
