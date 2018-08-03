@@ -1,6 +1,0 @@
-
-usquid:S2293@"YReplace the type specification in this constructor call with the diamond operator ("<>").(éá²”ÿÿÿÿÿ
-\
-squid:S106”"9Replace this use of System.out or System.err by a logger.(­èâ úÿÿÿÿ8áĞğÑÏ,
-^squid:S00112;"FDefine and throw a dedicated exception instead of using a generic one.(ŒæŸç
-%squid:RedundantThrowsDeclarationCheck;"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(ŒæŸç
