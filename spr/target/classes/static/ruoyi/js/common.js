@@ -1,6 +1,6 @@
 /**
  * 通用方法封装处理
- * Copyright (c) 2018 spr
+ * Copyright (c) 2018 srp
  */
 
 $(function(){
