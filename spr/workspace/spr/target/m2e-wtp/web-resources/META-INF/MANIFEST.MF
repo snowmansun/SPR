@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Implementation-Title: spr
 Implementation-Version: 2.2.0
 Built-By: ebest
-Implementation-Vendor-Id: com.spr
+Implementation-Vendor-Id: com.srp
 Build-Jdk: 1.8.0_171
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/spr

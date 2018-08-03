@@ -4,7 +4,7 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="spr" />
+          <element id="module-output" name="srp" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter:2.0.3.RELEASE" />
@@ -125,7 +125,7 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/spr/target/spr/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="spr/web/Web" />
+      <element id="javaee-facet-resources" facet="srp/web/Web" />
     </root>
   </artifact>
 </component>
