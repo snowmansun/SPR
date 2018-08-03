@@ -148,9 +148,9 @@ public class GenUtils
             return javaPath + "service" + "/" + className + "ServiceImpl.java";
         }
 
-        if (template.contains("Controller.java.vm"))
+        if (template.contains("controller.java.vm"))
         {
-            return javaPath + "controller" + "/" + className + "Controller.java";
+            return javaPath + "controller" + "/" + className + "controller.java";
         }
 
         if (template.contains("Mapper.xml.vm"))
