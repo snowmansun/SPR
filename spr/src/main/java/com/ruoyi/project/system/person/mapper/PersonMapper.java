@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface PersonMapper {
 
-    @Select("select * from Store limit 10")
+    @Select("select * from Store limit 1000")
     @ResultType(Store.class)
     List<Store> getListStoreAll();
 }

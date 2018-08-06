@@ -611,8 +611,6 @@ Jspr/src/main/java/com/ruoyi/project/system/notice/mapper/NoticeMapper.java,a\5
 Mspr/src/main/java/com/ruoyi/project/system/notice/service/INoticeService.java,b\2\b2477f606af1d4dfc499d39ce68689e2f3e15f42
 €
 Pspr/src/main/java/com/ruoyi/project/system/notice/service/NoticeServiceImpl.java,d\f\df5377e61b93aed2947e0b480d7b7ecbf840734d
-t
-Dspr/src/main/java/com/ruoyi/project/system/person/mapper/Person.java,2\3\230029835ec90517f8485189bdea6e5ae8aa377a
 ~
 Nspr/src/main/java/com/ruoyi/project/system/post/controller/PostController.java,7\1\71fdb436620874955d792638743b5ff2c0149308
 p
@@ -726,3 +724,15 @@ o
 ?spr/src/main/resources/templates/system/person/personIndex.html,7\b\7b33ec093ec16a2a380d9ba241d1ed1fdcc92677
 y
 Ispr/src/main/java/com/ruoyi/project/system/menu/service/IMenuService.java,d\0\d086310894926e5d77ce8df3c45b4e656338e53f
+f
+6spr/src/main/resources/templates/system/menu/tree.html,7\2\72df3c31625a3af4834b6ebdcd72cd4d2dc8e778
+v
+Fspr/src/main/java/com/ruoyi/project/system/person/entity/Position.java,3\6\3693a090661af57a8199c0830077957c852b9e61
+s
+Cspr/src/main/java/com/ruoyi/project/system/person/entity/Store.java,9\9\99d28da7c01aafc59f65af0c04887a6fd9c6b0f9
+v
+Fspr/src/main/java/com/ruoyi/project/system/person/service/IPerson.java,b\8\b8201b28b5a76bb12e6cd8205763d0765126d211
+|
+Lspr/src/main/java/com/ruoyi/project/system/person/service/PersonService.java,0\c\0c30f159e02c2a3f558eb4b57b5694bfde58e2d4
+z
+Jspr/src/main/java/com/ruoyi/project/system/person/mapper/PersonMapper.java,3\3\33343388f265e5bb47c1d03af94db747d9e498b5

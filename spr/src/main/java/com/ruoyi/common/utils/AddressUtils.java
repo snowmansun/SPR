@@ -16,6 +16,8 @@ public class AddressUtils
 
     public static final String IP_URL = "http://ip.taobao.com/service/getIpInfo.php";
 
+    private AddressUtils(){}
+
     public static String getRealAddressByIP(String ip)
     {
         String address = "";
