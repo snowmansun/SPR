@@ -88,6 +88,11 @@ public class UserController extends BaseController
         return prefix + "/add";
     }
 
+    @GetMapping("/add1")
+    public String add1()
+    {
+        return prefix + "/add1";
+    }
     /**
      * 新增保存用户
      */
