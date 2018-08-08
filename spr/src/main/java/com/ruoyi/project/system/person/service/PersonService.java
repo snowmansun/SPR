@@ -24,5 +24,31 @@ public class PersonService implements IPerson{
         List<Store> listStore = personMapper.getListStoreAll();
         return listStore;
     }
+
+    @Override
+    public List<Store> getListStoreByCity(String city){
+
+        return personMapper.getListStoreByCity(city);
+    }
+
+    @Override
+    public List<Store> getListStoreByCityDistrict(String city, String disrict) {
+
+        return personMapper.getListStoreByCityDistrict(city, disrict);
+    }
+
+    @Override
+    public List<Store> getListStoreByRegion(String region) {
+
+        return personMapper.getListStoreByRegion(region);
+    }
+
+    /**
+    public List<Store> getMapLine(double x1, double y1){
+
+        List<Store> listStore = personMapper.getMapLine(x1, y1);
+        return listStore;
+    }
+     **/
 }
 

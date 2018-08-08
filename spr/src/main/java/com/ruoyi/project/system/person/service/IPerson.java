@@ -8,4 +8,12 @@ public interface IPerson {
 
 
     List<Store> getListStoreAll();
+
+    List<Store> getListStoreByCity(String city);
+
+    List<Store> getListStoreByCityDistrict(String city, String disrict);
+
+    List<Store> getListStoreByRegion(String region);
+
+    //List<Store> getMapLine(double x1, double y1);
 }
