@@ -7,6 +7,17 @@
  */
 var Person={};
 
+
+Person.change = function(){
+
+    $("#region").change(function () {
+
+        alert("change");
+        alert("get :"+$(this).val());
+    });
+}
+
+
 //difine map center and zoom
 Person.setCenterZoom = function() {
 

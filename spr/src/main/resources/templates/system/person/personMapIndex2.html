@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>自定义样式信息窗体</title>
+    <link rel="stylesheet" href="https://cache.amap.com/lbs/static/main1119.css"/>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/person.js}"></script>
+    <link th:href="@{/css/person.css}" rel="stylesheet">
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.8&key=be0033b34b86f49ed93917c0a16b1277&plugin=AMap.PolyEditor,AMap.CircleEditor,AMap.GraspRoad,AMap.ToolBar"></script>
+    <script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
+    <link href="/ajax/libs/jquery-layout/jquery.layout-latest.css" th:href="@{/ajax/libs/jquery-layout/jquery.layout-latest.css}" rel="stylesheet"/>
+    <link href="/ajax/libs/jquery-ztree/3.5/css/metro/zTreeStyle.css" th:href="@{/ajax/libs/jquery-ztree/3.5/css/metro/zTreeStyle.css}" rel="stylesheet"/>
+</head>
+<body>
+<div>
+    <div class="container-div ui-layout-center">
+        <div class="row">
+            <form id="form1" action="/system/person/getListStoreByCityDistrict" method="post" >
+                <select name="region" id="region">
+                    <option value="1">区域</option>
+                    <option value="2">业务</option>
+                </select>
+                <select name="city" id="city">
+                    <option value="">一周工作几天</option>
+                    <option value="6" >6</option>
+                    <option value="5" >5</option>
+                    <option value="4" >4</option>
+                    <option value="3" >3</option>
+                </select>
+                <select name="disrict" id="disrict">
+                    <option value="">几个用户</option>
+                    <option value="用户1" >用户1</option>
+                    <option value="用户2" >用户2</option>
+                    <option value="用户3" >用户3</option>
+                    <option value="用户4" >用户4</option>
+                    <option value="用户5" >用户5</option>
+                </select>
+                <button id="button_sub" type="submit" value="提交">提交</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="container" style="margin-top: 30px"></div>
+
+    <div class="button-group">
+
+        <input type="button" class="button" value="开始编辑折线" onClick="editor.startEditLine()"/>
+        <input type="button" class="button" value="结束编辑折线" onClick="editor.closeEditLine()"/>
+
+        <input type="button" class="button" value="开始编辑UR1" onClick="editor.startEditPolygon()"/>
+        <input type="button" class="button" value="结束编辑UR1" onClick="editor.closeEditPolygon()"/>
+
+        <input type="button" class="button" value="开始编辑UR2" onClick="editor.startEditPolygon2()"/>
+        <input type="button" class="button" value="结束编辑UR2" onClick="editor.closeEditPolygon2()"/>
+
+        <input type="button" class="button" value="直线距离" onClick="walklineDistance()"/>
+        <input type="button" class="button" value="步行路线" onClick=""/>
+        <input type="button" class="button" value="驾车路线" onClick=""/>
+    </div>
+</div>
+<div id="tip"></div>
+<script th:inline="javascript">
+
+    var  data =[[${ListPerson}]];
+
+    var default_arr = [data[0].longitude, data[0].latitude];
+
+    var editorTool, map = new AMap.Map("container", {
+        resizeEnable: true,
+        center: default_arr, //地图中心点
+        zoom: 13 //地图显示的缩放级别
+    });
+    /**
+     *             [121.46980797294428, 31.224582803237602],
+     [121.48324572416972, 31.238221750946757],
+     [121.48329150361512, 31.238958826715166],
+     [121.480471, 31.240649]
+     * @type {{}}
+     */
+    var routline_arr = [
+            [121.46980797294428, 31.224582803237602],
+            [121.47638937951736, 31.233033345820992],
+                [121.480471, 31.240649],
+            [121.4796227457598, 31.242179964496177]
+    ];
+
+    Person.change();
+
+    Person.addwindowsinfo(routline_arr);   //加载信息窗体
+
+    Person.lineDistance(routline_arr);     //路线距离
+
+    Person.drivingDistance();
+
+    Person.ployonEditorDraw(routline_arr);  //编辑多边形
+
+    Person.setCenterZoom(routline_arr);    //设置中心点和缩放大小
+
+</script>
+
+<script type="text/javascript" src="https://webapi.amap.com/demos/js/liteToolbar.js"></script>
+</body>
+</html>
