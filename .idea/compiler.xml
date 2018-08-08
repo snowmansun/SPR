@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="SpringBoot_Mybatis" />
         <module name="srp" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="SpringBoot_Mybatis" target="1.8" />
       <module name="srp" target="1.8" />
     </bytecodeTargetLevel>
   </component>

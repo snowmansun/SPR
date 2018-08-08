@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/SPR.iml" filepath="$PROJECT_DIR$/.idea/SPR.iml" />
+      <module fileurl="file://D:/QQ/SpringBoot_Mybatis/SpringBoot_Mybatis/SpringBoot_Mybatis.iml" filepath="D:/QQ/SpringBoot_Mybatis/SpringBoot_Mybatis/SpringBoot_Mybatis.iml" />
       <module fileurl="file://$PROJECT_DIR$/spr/srp.iml" filepath="$PROJECT_DIR$/spr/srp.iml" />
     </modules>
   </component>
