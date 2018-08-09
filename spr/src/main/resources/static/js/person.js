@@ -7,12 +7,59 @@
  */
 var Person={};
 
+$(function () {
+
+    $("#get_checkbox_users").click(function () {
+
+        //Person.change();
+
+        var number = '';
+        $('input:checkbox[name=checkbox_user]:checked').each(function(k){
+            if(k == 0){
+                number = $(this).val();
+            }else{
+                number += ','+$(this).val();
+            }
+        })
+        alert(number);
+
+        var region_val =$("#region_val").val();
+        var days_val =$("#days_val").val();
+
+        var path_="/system/person/personIndex?user_code="+number+"&region_val="+region_val+"&days_val="+days_val;
+        alert("href: "+path_);
+        window.location.href = path_;
+
+    });
+});
+
+
+Person.change = function(){
+
+
+
+   // $('#myModal').modal()                      // 以默认值初始化
+    //$('#myModal').modal({ keyboard: false })   // initialized with no keyboard
+   // $('#myModal').modal('show')
+
+    /**
+    $('#exampleModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // 触发事件的按钮
+        var recipient = button.data('whatever') // 解析出data-whatever内容
+        var modal = $(this)
+        modal.find('.modal-title').text('Message To ' + recipient)
+        modal.find('.modal-body input').val(recipient)
+    })
+    **/
+}
+
+
 //difine map center and zoom
 Person.setCenterZoom = function() {
 
-    //map.setCenter([121.46980797294428,31.224582803237602]);
-    //map.setZoom(12);
-    // map.setFitView();
+    map.setCenter([121.46980797294428,31.224582803237602]);
+    map.setZoom(12);
+    map.setFitView();
 }
 
 //line distance
@@ -70,9 +117,9 @@ function drivingDistanceLocation3() {
                 // panel: "panel"
             });
 
-            alert("get info:" +result.routes[0].distance);
+          //  alert("get info:" +result.routes[0].distance);
         }else{
-            alert(result);
+          //  alert(result);
         }
     });
 }
@@ -105,7 +152,7 @@ function drivingDistanceLocation(){
             }
             **/
 
-            alert("get location: "+ result.routes[0].distance);
+          //  alert("get location: "+ result.routes[0].distance);
         });
 
     });
