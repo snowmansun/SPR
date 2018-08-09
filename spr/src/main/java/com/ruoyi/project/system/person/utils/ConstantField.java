@@ -21,5 +21,7 @@ public class ConstantField {
 
     public static final String ListUser = "ListUser";
 
+    public static final String personIndex = "personIndex";
+    
     public static final String personMapIndex = "personMapIndex";
 }

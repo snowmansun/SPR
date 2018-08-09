@@ -11,28 +11,39 @@ $(function () {
 
     $("#get_checkbox_users").click(function () {
 
-        //Person.change();
-
-        var number = '';
-        $('input:checkbox[name=checkbox_user]:checked').each(function(k){
-            if(k == 0){
-                number = $(this).val();
-            }else{
-                number += ','+$(this).val();
-            }
-        })
-        alert(number);
-
-        var region_val =$("#region_val").val();
-        var days_val =$("#days_val").val();
-
-        var path_="/system/person/personIndex?user_code="+number+"&region_val="+region_val+"&days_val="+days_val;
-        alert("href: "+path_);
-        window.location.href = path_;
-
+    	toUrl();
+    });
+    
+    $("#get_checkbox_users_button").click(function(){
+    	
+    	toUrl();
+    });
+    
+    $("#close_checkbox_users").click(function(){
+    	
+    	$("#model_div").modal('hide');
     });
 });
 
+
+function toUrl(){
+	
+    var number = '';
+    $('input:checkbox[name=checkbox_user]:checked').each(function(k){
+        if(k == 0){
+            number = $(this).val();
+        }else{
+            number += ','+$(this).val();
+        }
+    })
+
+    var region_val =$("#region_val").val();
+    var days_val =$("#days_val").val();
+
+    var path_="/system/person/personIndex?user_code="+number+"&region_val="+region_val+"&days_val="+days_val;
+    alert("href: "+path_);
+    window.location.href = path_;
+}
 
 Person.change = function(){
 

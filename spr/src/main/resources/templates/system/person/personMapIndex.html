@@ -18,19 +18,11 @@
 	<div class="container-div">
 		<div class="row">
 			<div class="col-sm-12 select-info">
-				<form id="role-form">
+				<form id="role1-form" action="/system/person/personIndex" method="post">
 					<div class="select-list gd">
 						<ul>
-							<!--
 							<li>
-								角色名称：<input type="text" name="roleName"/>
-							</li>
-							<li>
-								权限字符：<input type="text" name="roleKey"/>
-							</li>
-							-->
-							<li>
-								区域：<select name="status" style="width:250px" id="region_val" th:with="type=${@dict.getType('sys_normal_disable')}">
+								区域：<select name="region_val" style="width:250px" id="region_val" th:with="type=${@dict.getType('sys_normal_disable')}">
 									<option value="分区" style="width:250px">分区</option>
 									<option value="业务" style="width:250px">业务</option>
 									<!--
@@ -39,7 +31,7 @@
 								</select>
 							</li>
 							<li>
-								天数：<select name="status" style="width:250px" id = "days_val" th:with="type=${@dict.getType('sys_normal_disable')}">
+								天数：<select name="days_val" style="width:250px" id = "days_val" th:with="type=${@dict.getType('sys_normal_disable')}">
 								<option value="6" style="width:250px">6</option>
 								<option value="5" style="width:250px">5</option>
 								<option value="4" style="width:250px">4</option>
@@ -56,41 +48,34 @@
 
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">选择用户</button>
 
-                                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="model_div">
                                     <div class="modal-dialog modal-lg" role="document">
                                         <div class="modal-content" style="padding:25px" id="checkbox_table">
                                             <table width="100%">
-                                                <tr style="height:35px;" th:each="e : ${ListUser}">
-                                                    <td style="height: 35px;line-height:35px;text-align: center">
+                                                <tr style="height:35px;" >
+                                                    <td style="height: 35px;line-height:35px;text-align: center" th:each="e : ${ListUser}">
                                                         <div style="height:35px;width: 100%;text-align: center;line-height: 35px;vertical-align:middle;">
-                                                            <input type="checkbox" style="height:20px;width:20px;vertical-align:middle;" name="checkbox_user"  th:text="${e['LastName']}" th:value="${e['Code']}"/>1
+                                                            <input type="checkbox" style="height:20px;width:20px;vertical-align:middle;" name="user_code" id="user_code"  th:text="${e['LastName']}" th:value="${e['Code']}"/>1
                                                         </div>
                                                     </td>
                                                 </tr>
                                             </table>
-                                            <a class="btn btn-success btn-rounded btn-sm" id="get_checkbox_users"><i class="fa fa-download"></i>&nbsp;确定</a>
+                                            <div></div>
+                                            <!-- <a class="btn btn-success btn-rounded btn-sm" id="close_checkbox_users"><i class="fa fa-download"></i>&nbsp;确定</a> -->
+                                            <!-- <a class="btn btn-success btn-rounded btn-sm" id="get_checkbox_users"><i class="fa fa-download"></i>&nbsp;生成路线</a> -->
+                                            <a class="btn btn-success btn-rounded btn-sm" ><input type="button" id="close_checkbox_users" style="border:none;width:60px;height:20px" value="确定"/></a>
+                                            <a class="btn btn-success btn-rounded btn-sm" ><input type="submit" style="border:none;width:60px;height:20px"/></a>
                                         </div>
                                     </div>
                                 </div>
                             </li>
 							<li>
-								<a class="btn btn-success btn-rounded btn-sm" ><i class="fa fa-download"></i>&nbsp;路线规划</a>
+								<a class="btn btn-success btn-rounded btn-sm" ><input type="submit" style="border:none;width:80px;height:22px"/></a>
 							</li>
 						</ul>
 					</div>
 				</form>
 			</div>
-
-			<!--
-			<div class="btn-group hidden-xs" id="toolbar" role="group">
-				<a class="btn btn-outline btn-success btn-rounded" onclick="$.operate.add()" shiro:hasPermission="system:role:add">
-	                <i class="fa fa-plus"></i> 新增
-	            </a>
-				<a class="btn btn-outline btn-danger btn-rounded" onclick="$.operate.batRemove()" shiro:hasPermission="system:role:remove">
-		            <i class="fa fa-trash-o"></i> 删除
-		        </a>
-	        </div>
-	        -->
 
 	        <div class="col-sm-12 select-info table-striped" style="height:550px;z-index: 10;">
 				<!--

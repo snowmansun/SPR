@@ -41,7 +41,6 @@ public class MapLineController {
     @RequestMapping("/getMapCity")
     private String getListStoreByCity(ModelMap map, @Param("city") String city){
 
-        //List<Store> list_store = personService.getListStoreByCity(city);
         map.put("ListPerson", personService.getListStoreByCity(city));
         return prefix + "personMapIndex";
     }
@@ -64,6 +63,14 @@ public class MapLineController {
         return prefix + "personMapIndex";
     }
 
+    @RequestMapping(value = "/personIndexPost", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    private String index(ModelMap map,@RequestParam(value = "user_code", required = false) String user_code,
+    		@RequestParam(value = "days_val", required = false) String days_val,@RequestParam(value = "region_val", required = false) String region_val){
+
+        map.put("ListPerson", personService.getListStoreAll());
+        return prefix + "personIndex";
+    }
+    
     @RequestMapping(value = ConstantField.getListStoreByRegion, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     private String getListStoreByRegion(ModelMap map, @RequestParam(value = "region", required = false) String region){
 
