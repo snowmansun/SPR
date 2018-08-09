@@ -11,8 +11,6 @@ public class Store {
 
     private String storeName;
 
-    private Position position;
-
     private String longitude;
 
     private String latitude;

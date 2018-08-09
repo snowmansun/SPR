@@ -9,6 +9,21 @@ var Person={};
 
 $(function () {
 
+	 $("#role1-form").bind("submit", function(){  
+		 
+		    var user_code = $.trim($("#user_code").val());
+		    alert(user_code);
+	        if(user_code.length == 0)  
+	        {  
+	        	alert("用户不能为空!");
+	            isSuccess = 0;  
+	        }  
+	        if(isSuccess == 0)  
+	        {  
+	            return false;  
+	        }  
+	 });
+	
     $("#get_checkbox_users").click(function () {
 
     	toUrl();
@@ -21,9 +36,18 @@ $(function () {
     
     $("#close_checkbox_users").click(function(){
     	
+        var number = '';
+        $('input:checkbox[name=user_code]:checked').each(function(k){
+            if(k == 0){
+                number = $(this).val();
+            }else{
+                number += ','+$(this).val();
+            }
+        })
     	$("#user_code").val(number);
-    	alert($("#user_code").val());
-    	$("#model_div").modal('hide');
+        alert(number);
+        alert($("#user_code").val());
+    	//$("#model_div").modal('hide');
     });
 });
 

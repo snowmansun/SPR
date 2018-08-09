@@ -42,6 +42,6 @@ public class PersonController {
     private String index(ModelMap map,@RequestParam(value = "user_code", required = false) String user_code,@RequestParam(value = "days_val", required = false) String days_val,@RequestParam(value = "region_val", required = false) String region_val){
 
         map.put("ListPerson", personService.getListStoreAll());
-        return prefix + "personIndex";
+        return prefix + "personPostIndex";
     }
 }

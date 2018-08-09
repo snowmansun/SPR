@@ -45,12 +45,12 @@
 							</li>
 							<li>
 								人数：
-
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">选择用户</button>
 
                                 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="model_div">
                                     <div class="modal-dialog modal-lg" role="document">
                                         <div class="modal-content" style="padding:25px" id="checkbox_table">
+                                        	<!--  
                                             <table width="100%">
                                                 <tr style="height:35px;" >
                                                     <td style="height: 35px;line-height:35px;text-align: center" th:each="e : ${ListUser}">
@@ -60,11 +60,23 @@
                                                     </td>
                                                 </tr>
                                             </table>
-                                            <div></div>
+                                            -->
+                                            
+                                            <div style="display:inline-block">
+                                            	<ul>
+                                            		<li style="height: 35px;line-height:35px;text-align: center" th:each="e : ${ListUser}">
+                                            		     <div style="height:35px;width: 100px;text-align: center;line-height: 35px;vertical-align:middle;">
+                                                            <input type="checkbox" style="height:20px;width:20px;vertical-align:middle;" name="user_code2" id="user_code2"  th:text="${e['LastName']}" th:value="${e['Code']}"/>
+                                                        </div>
+                                            		</li>
+                                            	</ul>
+                                            </div>
                                             <!-- <a class="btn btn-success btn-rounded btn-sm" id="close_checkbox_users"><i class="fa fa-download"></i>&nbsp;确定</a> -->
                                             <!-- <a class="btn btn-success btn-rounded btn-sm" id="get_checkbox_users"><i class="fa fa-download"></i>&nbsp;生成路线</a> -->
-                                            <a class="btn btn-success btn-rounded btn-sm" ><input type="button" id="close_checkbox_users" style="border:none;width:60px;height:20px" value="确定"/></a>
-                                            <a class="btn btn-success btn-rounded btn-sm" ><input type="submit" style="border:none;width:60px;height:20px" value="路线规划"/></a>
+                                            <div style="text-align:center">
+                                            	<a class="btn btn-success btn-rounded btn-sm" ><input type="button" id="close_checkbox_users" style="border:none;width:60px;height:20px" value="确定"/></a>
+                                            	<a class="btn btn-success btn-rounded btn-sm" ><input type="submit" style="border:none;width:60px;height:20px" value="路线规划"/></a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
