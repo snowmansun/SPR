@@ -26,7 +26,7 @@ $(function () {
         var region_val =$("#region_val").val();
         var days_val =$("#days_val").val();
 
-        var path_="/system/person/personMapIndex?user_code="+number+"&region_val="+region_val+"&days_val="+days_val;
+        var path_="/system/person/personIndex?user_code="+number+"&region_val="+region_val+"&days_val="+days_val;
         alert("href: "+path_);
         window.location.href = path_;
 
