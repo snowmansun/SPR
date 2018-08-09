@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -63,12 +64,12 @@ public class MapLineController {
         return prefix + "personMapIndex";
     }
 
-    @RequestMapping(value = "/personIndexPost", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    private String index(ModelMap map,@RequestParam(value = "user_code", required = false) String user_code,
+    @PostMapping("/personPostIndex")
+    private String indexPost(ModelMap map,@RequestParam(value = "user_code", required = false) String user_code,
     		@RequestParam(value = "days_val", required = false) String days_val,@RequestParam(value = "region_val", required = false) String region_val){
 
         map.put("ListPerson", personService.getListStoreAll());
-        return prefix + "personIndex";
+        return prefix + "personPostIndex";
     }
     
     @RequestMapping(value = ConstantField.getListStoreByRegion, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

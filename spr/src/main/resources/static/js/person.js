@@ -21,6 +21,8 @@ $(function () {
     
     $("#close_checkbox_users").click(function(){
     	
+    	$("#user_code").val(number);
+    	alert($("#user_code").val());
     	$("#model_div").modal('hide');
     });
 });
@@ -39,6 +41,7 @@ function toUrl(){
 
     var region_val =$("#region_val").val();
     var days_val =$("#days_val").val();
+    $("#user_code").val(number);
 
     var path_="/system/person/personIndex?user_code="+number+"&region_val="+region_val+"&days_val="+days_val;
     alert("href: "+path_);

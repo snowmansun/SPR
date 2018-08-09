@@ -18,7 +18,7 @@
 	<div class="container-div">
 		<div class="row">
 			<div class="col-sm-12 select-info">
-				<form id="role1-form" action="/system/person/personPostIndex" method="post">
+				<form id="role1-form" action="/system/person/personIndex" method="post">
 					<div class="select-list gd">
 						<ul>
 							<li>
@@ -55,7 +55,7 @@
                                                 <tr style="height:35px;" >
                                                     <td style="height: 35px;line-height:35px;text-align: center" th:each="e : ${ListUser}">
                                                         <div style="height:35px;width: 100%;text-align: center;line-height: 35px;vertical-align:middle;">
-                                                            <input type="checkbox" style="height:20px;width:20px;vertical-align:middle;" name="user_code" id="user_code"  th:text="${e['LastName']}" th:value="${e['Code']}"/>1
+                                                            <input type="checkbox" style="height:20px;width:20px;vertical-align:middle;" name="user_code_val" id="user_code_val"  th:text="${e['LastName']}" th:value="${e['Code']}"/>1
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -64,13 +64,14 @@
                                             <!-- <a class="btn btn-success btn-rounded btn-sm" id="close_checkbox_users"><i class="fa fa-download"></i>&nbsp;确定</a> -->
                                             <!-- <a class="btn btn-success btn-rounded btn-sm" id="get_checkbox_users"><i class="fa fa-download"></i>&nbsp;生成路线</a> -->
                                             <a class="btn btn-success btn-rounded btn-sm" ><input type="button" id="close_checkbox_users" style="border:none;width:60px;height:20px" value="确定"/></a>
-                                            <a class="btn btn-success btn-rounded btn-sm" ><input type="submit" style="border:none;width:60px;height:20px" value="路线规划"/></a>
+                                            <a class="btn btn-success btn-rounded btn-sm" ><input type="submit" style="border:none;width:60px;height:20px"/></a>
                                         </div>
                                     </div>
                                 </div>
+                                <input type="hidden" name="user_code" id="user_code"/>
                             </li>
 							<li>
-								<a class="btn btn-success btn-rounded btn-sm" ><input type="submit" style="border:none;width:80px;height:22px" value="路线规划"/></a>
+								<a class="btn btn-success btn-rounded btn-sm" ><input type="submit" style="border:none;width:80px;height:22px"/></a>
 							</li>
 						</ul>
 					</div>
