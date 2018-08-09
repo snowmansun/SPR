@@ -2,6 +2,7 @@ package com.ruoyi.project.system.person.controller;
 
 import com.ruoyi.project.system.person.entity.Store;
 import com.ruoyi.project.system.person.service.IPerson;
+import com.ruoyi.project.system.person.utils.ConstantField;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -24,7 +25,7 @@ import java.util.List;
 @RequestMapping("/system/person")
 public class MapLineController {
 
-    private String prefix = "system/person/";
+    private String prefix = ConstantField.prefix;
 
     @Autowired
     private IPerson personService;
@@ -33,6 +34,7 @@ public class MapLineController {
     private String index(ModelMap map){
 
         map.put("ListPerson", personService.getListStoreAll());
+        map.put("ListUser", personService.getListPersonAll());
         return prefix + "personMapIndex";
     }
 
@@ -62,19 +64,17 @@ public class MapLineController {
         return prefix + "personMapIndex";
     }
 
-    @RequestMapping(value = "/getListStoreByRegion", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(value = ConstantField.getListStoreByRegion, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     private String getListStoreByRegion(ModelMap map, @RequestParam(value = "region", required = false) String region){
 
-        map.put("ListPerson", personService.getListStoreByRegion(region));
-        return prefix + "personMapIndex";
+        map.put(ConstantField.ListPerson, personService.getListStoreByRegion(region));
+        return ConstantField.prefix + ConstantField.personMapIndex;
     }
 
-    /**
-    @RequestMapping("/getMapLine")
-    private List<Store> getMapLine(@Param("x1") String x1, @Param("y1") String y1){
+    @RequestMapping(value = ConstantField.getListPersonAll, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    private String getListPersonAll(ModelMap map){
 
-        List<Store> list_store = personService.getMapLine(Double.valueOf(x1), Double.valueOf(y1));
-        return list_store;
+        map.put(ConstantField.ListPerson, personService.getListPersonAll());
+        return ConstantField.prefix + ConstantField.personMapIndex;
     }
-    **/
 }

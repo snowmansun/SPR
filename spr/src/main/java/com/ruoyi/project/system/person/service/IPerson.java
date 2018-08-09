@@ -1,5 +1,6 @@
 package com.ruoyi.project.system.person.service;
 
+import com.ruoyi.project.system.person.entity.Person;
 import com.ruoyi.project.system.person.entity.Store;
 
 import java.util.List;
@@ -15,5 +16,5 @@ public interface IPerson {
 
     List<Store> getListStoreByRegion(String region);
 
-    //List<Store> getMapLine(double x1, double y1);
+    List<Person> getListPersonAll();
 }

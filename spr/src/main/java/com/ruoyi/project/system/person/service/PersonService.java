@@ -1,5 +1,6 @@
 package com.ruoyi.project.system.person.service;
 
+import com.ruoyi.project.system.person.entity.Person;
 import com.ruoyi.project.system.person.entity.Store;
 import com.ruoyi.project.system.person.mapper.PersonMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,12 +44,10 @@ public class PersonService implements IPerson{
         return personMapper.getListStoreByRegion(region);
     }
 
-    /**
-    public List<Store> getMapLine(double x1, double y1){
+    @Override
+    public List<Person> getListPersonAll(){
 
-        List<Store> listStore = personMapper.getMapLine(x1, y1);
-        return listStore;
+        return personMapper.getListPersonAll();
     }
-     **/
 }
 

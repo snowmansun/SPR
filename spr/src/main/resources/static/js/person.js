@@ -7,8 +7,36 @@
  */
 var Person={};
 
+$(function () {
+
+    $("#get_checkbox_users").click(function () {
+
+        //Person.change();
+
+        var number = '';
+        $('input:checkbox[name=checkbox_user]:checked').each(function(k){
+            if(k == 0){
+                number = $(this).val();
+            }else{
+                number += ','+$(this).val();
+            }
+        })
+        alert(number);
+
+        var region_val =$("#region_val").val();
+        var days_val =$("#days_val").val();
+
+        var path_="/system/person/personMapIndex?user_code="+number+"&region_val="+region_val+"&days_val="+days_val;
+        alert("href: "+path_);
+        window.location.href = path_;
+
+    });
+});
+
 
 Person.change = function(){
+
+
 
    // $('#myModal').modal()                      // 以默认值初始化
     //$('#myModal').modal({ keyboard: false })   // initialized with no keyboard

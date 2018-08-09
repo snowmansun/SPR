@@ -32,8 +32,8 @@
 							-->
 							<li>
 								区域：<select name="status" style="width:250px" id="region_val" th:with="type=${@dict.getType('sys_normal_disable')}">
-									<option value="分区" style="width:250px">分区</option>
-									<option value="业务" style="width:250px">业务</option>
+									<option value="" style="width:250px">分区</option>
+									<option value="" style="width:250px">业务</option>
 									<!--
 									<option style="width:250px" th:each="e : ${type}" th:text="${e['dictLabel']}" th:value="${e['dictValue']}"></option>
 									-->
@@ -41,12 +41,12 @@
 							</li>
 							<li>
 								天数：<select name="status" style="width:250px" id = "days_val" th:with="type=${@dict.getType('sys_normal_disable')}">
-								<option value="6" style="width:250px">6</option>
-								<option value="5" style="width:250px">5</option>
-								<option value="4" style="width:250px">4</option>
-								<option value="3" style="width:250px">3</option>
-								<option value="2" style="width:250px">2</option>
-								<option value="1" style="width:250px">1</option>
+								<option value="" style="width:250px">6</option>
+								<option value="" style="width:250px">5</option>
+								<option value="" style="width:250px">4</option>
+								<option value="" style="width:250px">3</option>
+								<option value="" style="width:250px">2</option>
+								<option value="" style="width:250px">1</option>
 								<!--
 								<option style="width:250px" th:each="e : ${type}" th:text="${e['dictLabel']}" th:value="${e['dictValue']}"></option>
 								-->
@@ -64,7 +64,7 @@
                                                 <tr style="height:35px;" th:each="e : ${ListUser}">
                                                     <td style="height: 35px;line-height:35px;text-align: center">
                                                         <div style="height:35px;width: 100%;text-align: center;line-height: 35px;vertical-align:middle;">
-                                                            <input type="checkbox" style="height:20px;width:20px;vertical-align:middle;" name="checkbox_user"  th:text="${e['LastName']}" th:value="${e['Code']}"/>1
+                                                            <input type="checkbox" style="height:20px;width:20px;vertical-align:middle;" name="checkbox_user"  th:text="${e['LastName']}" th:value="${e['LastName']}"/>1
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -76,6 +76,7 @@
                             </li>
 							<li>
 								<a class="btn btn-success btn-rounded btn-sm" ><i class="fa fa-download"></i>&nbsp;路线规划</a>
+								<a class="menuItem" style="display: block" id="getpath" th:href="@{/system/person/personIndex}">智能排线页面1</a>
 							</li>
 						</ul>
 					</div>
