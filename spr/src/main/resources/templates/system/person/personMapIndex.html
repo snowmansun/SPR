@@ -4,9 +4,14 @@
 <meta charset="utf-8">
 <head th:include="include :: header"></head>
 
+<!--<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>-->
 <script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+
 <script th:src="@{/js/person.js}"></script>
 <link th:href="@{/css/person.css}" rel="stylesheet">
+
+<!--<link th:href="@{/ruoyi/css/ry-ui.min.css?v=2.2.0}" rel="stylesheet"/>-->
 <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.8&key=be0033b34b86f49ed93917c0a16b1277&plugin=AMap.PolyEditor,AMap.CircleEditor,AMap.GraspRoad,AMap.ToolBar"></script>
 <body class="gray-bg">
 	
@@ -25,20 +30,138 @@
 							</li>
 							-->
 							<li>
-								区域：<select name="status" th:with="type=${@dict.getType('sys_normal_disable')}">
-									<option value="">所有</option>
-									<option th:each="e : ${type}" th:text="${e['dictLabel']}" th:value="${e['dictValue']}"></option>
+								区域：<select name="status" style="width:250px" th:with="type=${@dict.getType('sys_normal_disable')}">
+									<option value="" style="width:250px">分区</option>
+									<option value="" style="width:250px">业务</option>
+									<!--
+									<option style="width:250px" th:each="e : ${type}" th:text="${e['dictLabel']}" th:value="${e['dictValue']}"></option>
+									-->
 								</select>
 							</li>
-							<li class="time">
-								<label>创建时间： </label>
-								<input type="text" class="layui-input" id="startTime" placeholder="开始时间" name="params[beginTime]"/>
-								<span>-</span>
-								<input type="text" class="layui-input" id="endTime" placeholder="结束时间" name="params[endTime]"/>
+							<li>
+								天数：<select name="status" style="width:250px" th:with="type=${@dict.getType('sys_normal_disable')}">
+								<option value="" style="width:250px">6</option>
+								<option value="" style="width:250px">5</option>
+								<option value="" style="width:250px">4</option>
+								<option value="" style="width:250px">3</option>
+								<option value="" style="width:250px">2</option>
+								<option value="" style="width:250px">1</option>
+								<!--
+								<option style="width:250px" th:each="e : ${type}" th:text="${e['dictLabel']}" th:value="${e['dictValue']}"></option>
+								-->
+								</select>
 							</li>
 							<li>
-								<a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search($('form').attr('id'))"><i class="fa fa-search"></i>&nbsp;搜索</a>
-							    <a class="btn btn-success btn-rounded btn-sm" onclick="$.table.exportExcel($('form').attr('id'))"><i class="fa fa-download"></i>&nbsp;下载</a>
+								人数：
+								<!--
+								<select name="status" style="width:250px" th:with="type=${@dict.getType('sys_normal_disable')}">
+
+									<option value="" style="width:250px">用户</option>
+								<!--
+								<option style="width:250px" th:each="e : ${type}" th:text="${e['dictLabel']}" th:value="${e['dictValue']}"></option>
+								-->
+
+								<!--
+								</select>
+								-->
+								<!--
+								<select name="select_user" id="select_user" style="width:250px" th:with="type=${@dict.getType('sys_normal_disable')}">
+								</select>
+								-->
+                                <!---->
+                                <!--
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">好友列表</div>
+                                    <div class="panel-body">
+                                        <div class="list-group" role="group" aria-label="好友列表">
+                                            <button type="button" class="list-group-item" data-toggle="modal" data-target="#exampleModal"
+                                                    data-whatever="张三">张三
+                                            </button>
+                                            <button type="button" class="list-group-item" data-toggle="modal" data-target="#exampleModal"
+                                                    data-whatever="李四">李四
+                                            </button>
+                                            <button type="button" class="list-group-item" data-toggle="modal" data-target="#exampleModal"
+                                                    data-whatever="王二">王二
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                                        aria-hidden="true">×</span></button>
+                                                <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <label for="recipient-name" class="control-label">Recipient:</label>
+                                                        <input type="text" class="form-control" id="recipient-name">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="message-text" class="control-label">Message:</label>
+                                                        <textarea class="form-control" id="message-text"></textarea>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Send message</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                -->
+
+                                <!-- Button trigger modal -->
+                                <!--
+								<button type="button" class="btn btn-primary btn-lg" style="width:200px;height:30px;line-height:30px" data-toggle="modal" data-target="#myModal">
+									选择用户
+								</button>
+                                -->
+
+								<!-- Modal -->
+                                <!--
+								<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+												<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+											</div>
+											<div class="modal-body">
+												<input type="checkbox" name="usersigle"/>张三
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+												<button type="button" class="btn btn-primary">Save changes</button>
+											</div>
+										</div>
+									</div>
+								</div>
+                                -->
+
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">选择用户</button>
+
+                                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content" style="padding:25px">
+                                            <input type="checkbox">张三
+                                            <input type="checkbox">李四
+                                            <input type="checkbox">赵五
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>
+
+
+							<li>
+
+								<a class="btn btn-success btn-rounded btn-sm" ><i class="fa fa-download"></i>&nbsp;路线规划</a>
 							</li>
 						</ul>
 					</div>
@@ -56,15 +179,13 @@
 	        </div>
 	        -->
 
-	        <div class="col-sm-12 select-info table-striped" style="height:550px">
+	        <div class="col-sm-12 select-info table-striped" style="height:550px;z-index: 10;">
 				<!--
 			    <table id="bootstrap-table" data-mobile-responsive="true"></table>
 			    -->
-				<div id="container" style="height:520px">
+				<div id="container" style="height:520px;z-index: 10;"></div>
 
-					134567
-				</div>
-
+				<!--
 				<div class="button-group">
 
 					<input type="button" class="button" value="开始编辑折线" onClick="editor.startEditLine()"/>
@@ -80,6 +201,7 @@
 					<input type="button" class="button" value="步行路线" onClick=""/>
 					<input type="button" class="button" value="驾车路线" onClick=""/>
 				</div>
+				-->
 			</div>
 
 		</div>
@@ -91,7 +213,9 @@
 	<script th:inline="javascript">
 
 
-		alert($("#container").html());
+		//alert($("#container").html());
+
+
 
         var  data =[[${ListPerson}]];
 
@@ -124,7 +248,7 @@
 
         //Person.drivingDistance();
 
-        Person.ployonEditorDraw(routline_arr);  //编辑多边形
+        //Person.ployonEditorDraw(routline_arr);  //编辑多边形
 
         Person.setCenterZoom(routline_arr);    //设置中心点和缩放大小
 

@@ -283,6 +283,7 @@
             },
             // 弹出层全屏
             openFull: function (title, url, width, height) {
+
             	if ($.common.isEmpty(title)) {
                     title = false;
                 };

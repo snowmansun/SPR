@@ -10,20 +10,28 @@ var Person={};
 
 Person.change = function(){
 
-    $("#region").change(function () {
+   // $('#myModal').modal()                      // 以默认值初始化
+    //$('#myModal').modal({ keyboard: false })   // initialized with no keyboard
+   // $('#myModal').modal('show')
 
-        alert("change");
-        alert("get :"+$(this).val());
-    });
+    /**
+    $('#exampleModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // 触发事件的按钮
+        var recipient = button.data('whatever') // 解析出data-whatever内容
+        var modal = $(this)
+        modal.find('.modal-title').text('Message To ' + recipient)
+        modal.find('.modal-body input').val(recipient)
+    })
+    **/
 }
 
 
 //difine map center and zoom
 Person.setCenterZoom = function() {
 
-    //map.setCenter([121.46980797294428,31.224582803237602]);
-    //map.setZoom(12);
-    // map.setFitView();
+    map.setCenter([121.46980797294428,31.224582803237602]);
+    map.setZoom(12);
+    map.setFitView();
 }
 
 //line distance
@@ -81,9 +89,9 @@ function drivingDistanceLocation3() {
                 // panel: "panel"
             });
 
-            alert("get info:" +result.routes[0].distance);
+          //  alert("get info:" +result.routes[0].distance);
         }else{
-            alert(result);
+          //  alert(result);
         }
     });
 }
@@ -116,7 +124,7 @@ function drivingDistanceLocation(){
             }
             **/
 
-            alert("get location: "+ result.routes[0].distance);
+          //  alert("get location: "+ result.routes[0].distance);
         });
 
     });
