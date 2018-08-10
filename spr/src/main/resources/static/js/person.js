@@ -9,6 +9,7 @@ var Person={};
 
 $(function () {
 
+<<<<<<< Updated upstream
 	 $("#role1-form").bind("submit", function(){  
 		 
 		    var user_code = $.trim($("#user_code").val());
@@ -36,6 +37,39 @@ $(function () {
     
     $("#close_checkbox_users").click(function(){
     	
+=======
+    /**
+     $("#role1-form").bind("submit", function(){
+
+		    var user_code = $.trim($("#user_code").val());
+		    alert(user_code);
+	        if(user_code.length == 0)
+	        {
+	        	alert("用户不能为空!");
+	            isSuccess = 0;
+	        }
+	        if(isSuccess == 0)
+	        {
+	            return false;
+	        }else{
+	        	return true;
+	        }
+	 });
+     **/
+
+    $("#get_checkbox_users").click(function () {
+
+        toUrl();
+    });
+
+    $("#get_checkbox_users_button").click(function(){
+
+        toUrl();
+    });
+
+    $("#close_checkbox_users").click(function(){
+
+>>>>>>> Stashed changes
         var number = '';
         $('input:checkbox[name=user_code]:checked').each(function(k){
             if(k == 0){
@@ -44,6 +78,7 @@ $(function () {
                 number += ','+$(this).val();
             }
         })
+<<<<<<< Updated upstream
     	$("#user_code").val(number);
         alert(number);
         alert($("#user_code").val());
@@ -66,29 +101,106 @@ function toUrl(){
     var region_val =$("#region_val").val();
     var days_val =$("#days_val").val();
     $("#user_code").val(number);
+=======
+        $("#user_code").val(number);
+        var region_val =$("#region_val").val();
+        var days_val =$("#days_val").val();
+
+        var path_="/system/person/personMapIndex?user_code="+number+"&region_val="+region_val+"&days_val="+days_val;
+        window.location.href = path_;
+    });
+});
+>>>>>>> Stashed changes
 
     var path_="/system/person/personIndex?user_code="+number+"&region_val="+region_val+"&days_val="+days_val;
     alert("href: "+path_);
     window.location.href = path_;
 }
 
+function toUrl(){
+
+    var number = '';
+    $('input:checkbox[name=checkbox_user]:checked').each(function(k){
+        if(k == 0){
+            number = $(this).val();
+        }else{
+            number += ','+$(this).val();
+        }
+    })
+
+    var region_val =$("#region_val").val();
+    var days_val =$("#days_val").val();
+    $("#user_code").val(number);
+
+    var path_="/system/person/personIndex?user_code="+number+"&region_val="+region_val+"&days_val="+days_val;
+
+    window.location.href = path_;
+}
+
+Person.getRoutLineByData = function(data){
+
+    var routLine = new Array();
+    for(var i=0; i<data.length;i++){
+
+        var location_arr = [data[i].longitude, data[i].latitude, data[i].userCode];
+        routLine[i] = location_arr;
+    }
+    return routLine;
+}
+
+Person.getImgUrlByPersonArray = function(PersonArray, user_code_val){
+
+    for(var i=0; i<PersonArray.length;i++){
+
+        if(PersonArray[i][0] = user_code_val){
+            return PersonArray[i][1];
+        }
+    }
+}
+
+Person.getPersonArrayByData = function(data){
+
+    var userCodeArray = new Array();
+    for(var i=0; i<data.length;i++){
+
+        var userCode =data[i].userCode;
+        if(isInArray(userCodeArray, userCode)==false){
+
+            userCodeArray[i] = [userCode, "https://webapi.amap.com/theme/v1.3/markers/n/mark_b"+(i+1)+".png"];
+        }
+    }
+    return userCodeArray;
+}
+
+function isInArray(userCodeArray,val){
+
+    var userCodeArray_isIn = userCodeArray;
+    for(var j=0; j<userCodeArray_isIn.length;j++){
+
+        if(userCodeArray_isIn[j][0] == val){
+            return true;
+        }
+    }
+    return false;
+}
+
 Person.change = function(){
 
 
 
-   // $('#myModal').modal()                      // 以默认值初始化
+    // $('#myModal').modal()                      // 以默认值初始化
     //$('#myModal').modal({ keyboard: false })   // initialized with no keyboard
-   // $('#myModal').modal('show')
+    // $('#myModal').modal('show')
 
     /**
-    $('#exampleModal').on('show.bs.modal', function (event) {
+     $('#exampleModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) // 触发事件的按钮
         var recipient = button.data('whatever') // 解析出data-whatever内容
         var modal = $(this)
         modal.find('.modal-title').text('Message To ' + recipient)
         modal.find('.modal-body input').val(recipient)
     })
-    **/
+     **/
 }
 
 
@@ -105,9 +217,9 @@ Person.lineDistance = function(routline_arr) {
 
     /**
      *  [[121.46980797294428, 31.224582803237602],
-        [121.48324572416972, 31.238221750946757],
-        [121.48329150361512, 31.238958826715166],
-        [121.480471, 31.240649]]
+     [121.48324572416972, 31.238221750946757],
+     [121.48329150361512, 31.238958826715166],
+     [121.480471, 31.240649]]
      */
 
     for(var j=0; j< (routline_arr.length-1); j++){
@@ -155,9 +267,9 @@ function drivingDistanceLocation3() {
                 // panel: "panel"
             });
 
-          //  alert("get info:" +result.routes[0].distance);
+            //  alert("get info:" +result.routes[0].distance);
         }else{
-          //  alert(result);
+            //  alert(result);
         }
     });
 }
@@ -178,19 +290,19 @@ function drivingDistanceLocation(){
                 (new Lib.AMap.DrivingRender()).autoRender({
                     data: result,
                     map: map,
-                    panel: "panel"
+                    // panel: "panel"
                 });
             }
             /**
-            button.onclick = function(){
+             button.onclick = function(){
                 driving.searchOnAMAP({
                     origin:result.origin,
                     destination:result.destination
                 });
             }
-            **/
+             **/
 
-          //  alert("get location: "+ result.routes[0].distance);
+            //  alert("get location: "+ result.routes[0].distance);
         });
 
     });
@@ -293,12 +405,12 @@ Person.ployonEditorDraw = function(routline_arr) {
 
     editor._line=(function(){
         /**
-        var lineArr = [
-            [121.46980797294428, 31.224582803237602],
-            [121.48324572416972, 31.238221750946757],
-            [121.48329150361512, 31.238958826715166],
-            [121.480471, 31.240649]
-        ];
+         var lineArr = [
+         [121.46980797294428, 31.224582803237602],
+         [121.48324572416972, 31.238221750946757],
+         [121.48329150361512, 31.238958826715166],
+         [121.480471, 31.240649]
+         ];
          **/
         var lineArr = routline_arr;
         return new AMap.Polyline({
@@ -406,8 +518,16 @@ function info_data(data,index, routline_arr){
     var longitude = data[index].longitude;
     var position_arr = [longitude, latitude];
 
+
+
     var randomIntIcon = "https://webapi.amap.com/theme/v1.3/images/newpc/poi-1.png";
+
+
+
     var img_offset = index%2 ==0 ? -60 : -169;
+
+   // var userCode = routline_arr[k][2];
+
 
     //only ten picture.
     if(routline_arr.length <10){
@@ -422,6 +542,11 @@ function info_data(data,index, routline_arr){
         img_offset=0;
         randomIntIcon = "https://webapi.amap.com/theme/v1.3/markers/n/mark_b1.png";
     }
+
+    //这里定义用户图标
+    var user_code =data[index].userCode;
+    var randomIntIcon2 = Person.getImgUrlByPersonArray(userCodeArray,user_code);
+
 
     var marker = new AMap.Marker({
         map: map,

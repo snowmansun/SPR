@@ -17,4 +17,6 @@ public interface IPerson {
     List<Store> getListStoreByRegion(String region);
 
     List<Person> getListPersonAll();
+
+    List<Store> getRoutLineByUsers(String user_code);
 }

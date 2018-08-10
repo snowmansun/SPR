@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org"
-	xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+	  xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <meta charset="utf-8">
 <head th:include="include :: header"></head>
 <!--<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>-->
@@ -14,6 +14,7 @@
 <!--<link th:href="@{/ruoyi/css/ry-ui.min.css?v=2.2.0}" rel="stylesheet"/>-->
 <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.8&key=be0033b34b86f49ed93917c0a16b1277&plugin=AMap.PolyEditor,AMap.CircleEditor,AMap.GraspRoad,AMap.ToolBar"></script>
 <body class="gray-bg" th:classappend="${@config.getKey('sys.index.skinName')}">
+<<<<<<< Updated upstream
 	
 	<div class="container-div">
 		<div class="row">
@@ -113,9 +114,110 @@
 				</div>
 				-->
 			</div>
+=======
 
+<div class="container-div">
+	<div class="row">
+		<div class="col-sm-12 select-info">
+			<form id="role1-form" action="/system/person/personPostIndex" method="post">
+				<div class="select-list gd">
+					<ul>
+						<li>
+							区域：<select name="region_val" style="width:250px" id="region_val" th:with="type=${@dict.getType('sys_normal_disable')}">
+							<option value="分区" style="width:250px">分区</option>
+							<option value="业务" style="width:250px">业务</option>
+							<!--
+                            <option style="width:250px" th:each="e : ${type}" th:text="${e['dictLabel']}" th:value="${e['dictValue']}"></option>
+                            -->
+						</select>
+						</li>
+						<li>
+							天数：<select name="days_val" style="width:250px" id = "days_val" th:with="type=${@dict.getType('sys_normal_disable')}">
+							<option value="6" style="width:250px">6</option>
+							<option value="5" style="width:250px">5</option>
+							<option value="4" style="width:250px">4</option>
+							<option value="3" style="width:250px">3</option>
+							<option value="2" style="width:250px">2</option>
+							<option value="1" style="width:250px">1</option>
+							<!--
+                            <option style="width:250px" th:each="e : ${type}" th:text="${e['dictLabel']}" th:value="${e['dictValue']}"></option>
+                            -->
+						</select>
+						</li>
+						<li>
+							人数：
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">选择用户</button>
+
+							<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="model_div">
+								<div class="modal-dialog modal-lg" role="document">
+									<div class="modal-content" style="padding:25px" id="checkbox_table">
+										<!--
+                                        <table width="100%">
+                                            <tr style="height:35px;" >
+                                                <td style="height: 35px;line-height:35px;text-align: center" th:each="e : ${ListUser}">
+                                                    <div style="height:35px;width: 100%;text-align: center;line-height: 35px;vertical-align:middle;">
+                                                        <input type="checkbox" style="height:20px;width:20px;vertical-align:middle;" name="user_code" id="user_code"  th:text="${e['LastName']}" th:value="${e['Code']}"/>1
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        -->
+
+										<div style="display:inline-block">
+											<ul>
+												<li style="height: 35px;line-height:35px;text-align: center" th:each="e : ${ListUser}">
+													<div style="height:35px;width: 100px;text-align: center;line-height: 35px;vertical-align:middle;">
+														<input type="checkbox" style="height:20px;width:20px;vertical-align:middle;" name="user_code" id="user_code"  th:text="${e['LastName']}" th:value="${e['Code']}"/>
+													</div>
+												</li>
+											</ul>
+										</div>
+										<!-- <a class="btn btn-success btn-rounded btn-sm" id="close_checkbox_users"><i class="fa fa-download"></i>&nbsp;确定</a> -->
+										<!-- <a class="btn btn-success btn-rounded btn-sm" id="get_checkbox_users"><i class="fa fa-download"></i>&nbsp;生成路线</a> -->
+										<div style="text-align:center">
+											<a class="btn btn-success btn-rounded btn-sm" ><input type="button" id="close_checkbox_users" style="border:none;width:60px;height:20px" value="确定"/></a>
+											<a class="btn btn-success btn-rounded btn-sm" ><input type="submit" style="border:none;width:60px;height:20px" value="路线规划"/></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<a class="btn btn-success btn-rounded btn-sm" ><input type="submit" style="border:none;width:80px;height:22px" value="路线规划"/></a>
+						</li>
+					</ul>
+				</div>
+			</form>
 		</div>
+
+		<div class="col-sm-12 select-info table-striped" style="height:550px;z-index: 10;">
+			<!--
+            <table id="bootstrap-table" data-mobile-responsive="true"></table>
+            -->
+			<div id="container" style="height:520px;z-index: 10;"></div>
+
+			<!--
+            <div class="button-group">
+>>>>>>> Stashed changes
+
+                <input type="button" class="button" value="开始编辑折线" onClick="editor.startEditLine()"/>
+                <input type="button" class="button" value="结束编辑折线" onClick="editor.closeEditLine()"/>
+
+                <input type="button" class="button" value="开始编辑UR1" onClick="editor.startEditPolygon()"/>
+                <input type="button" class="button" value="结束编辑UR1" onClick="editor.closeEditPolygon()"/>
+
+                <input type="button" class="button" value="开始编辑UR2" onClick="editor.startEditPolygon2()"/>
+                <input type="button" class="button" value="结束编辑UR2" onClick="editor.closeEditPolygon2()"/>
+
+                <input type="button" class="button" value="直线距离" onClick="walklineDistance()"/>
+                <input type="button" class="button" value="步行路线" onClick=""/>
+                <input type="button" class="button" value="驾车路线" onClick=""/>
+            </div>
+            -->
+		</div>
+
 	</div>
+<<<<<<< Updated upstream
 	<!--
 	<div th:include="include :: footer"></div>
 	-->
@@ -159,5 +261,56 @@
 	</script>
 
 	<script type="text/javascript" src="https://webapi.amap.com/demos/js/liteToolbar.js"></script>
+=======
+</div>
+<!--
+<div th:include="include :: footer"></div>
+-->
+
+<script th:inline="javascript">
+
+
+    //alert($("#container").html());
+
+    var  data =[[${ListPerson}]];
+
+    var user_code = [[${user_code}]];
+
+	var userCodeArray = Person.getPersonArrayByData(data);
+
+    var default_arr = [data[0].longitude, data[0].latitude];
+
+    var editorTool, map = new AMap.Map("container", {
+        resizeEnable: true,
+        center: default_arr, //地图中心点
+        zoom: 13 //地图显示的缩放级别
+    });
+
+
+    var routline_arr2 = [
+        [121.46980797294428, 31.224582803237602,1],
+        [121.47638937951736, 31.233033345820992,1],
+        [121.480471, 31.240649,1],
+        [121.4796227457598, 31.242179964496177,1]
+    ];
+
+    var routline_arr = user_code==null ? routline_arr2: Person.getRoutLineByData(data);
+
+    Person.change();
+
+    Person.addwindowsinfo(routline_arr);   //加载信息窗体
+
+    Person.lineDistance(routline_arr);     //路线距离
+
+    //Person.drivingDistance();
+
+    //Person.ployonEditorDraw(routline_arr);  //编辑多边形
+
+    Person.setCenterZoom(routline_arr);    //设置中心点和缩放大小
+
+</script>
+
+<script type="text/javascript" src="https://webapi.amap.com/demos/js/liteToolbar.js"></script>
+>>>>>>> Stashed changes
 </body>
 </html>

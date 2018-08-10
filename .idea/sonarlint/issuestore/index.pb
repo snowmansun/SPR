@@ -1084,3 +1084,7 @@ Bspr/src/main/resources/templates/system/person/personMapIndex.html,e\1\e1e259f
 ,spr/src/main/resources/static/css/person.css,0\0\004b368d3e71c46be54dd4b63727c81bc7c8d1ec
 Z
 *spr/src/main/resources/static/js/person.js,2\7\273dad65a7aadf20dc8c79f30b558927c528aa90
+t
+Dspr/src/main/java/com/ruoyi/project/system/person/entity/Person.java,9\b\9bfcdbf56d43e5bfd5cd5d6a3c052ef8177eab06
+z
+Jspr/src/main/java/com/ruoyi/project/system/person/utils/ConstantField.java,8\b\8b289c9809b529769561427b6834bda1a57a10bc

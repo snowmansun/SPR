@@ -9,8 +9,13 @@ public class Store {
 
     private String storeCode;
 
+    private String userCode;
+
+<<<<<<< Updated upstream
+=======
     private String storeName;
 
+>>>>>>> Stashed changes
     private String longitude;
 
     private String latitude;
@@ -45,5 +50,13 @@ public class Store {
 
     public void setLatitude(String latitude) {
         this.latitude = latitude;
+    }
+
+    public String getUserCode() {
+        return userCode;
+    }
+
+    public void setUserCode(String userCode) {
+        this.userCode = userCode;
     }
 }

@@ -3,6 +3,7 @@ package com.ruoyi.project.system.person.service;
 import com.ruoyi.project.system.person.entity.Person;
 import com.ruoyi.project.system.person.entity.Store;
 import com.ruoyi.project.system.person.mapper.PersonMapper;
+import com.ruoyi.project.system.person.utils.PersonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,7 @@ import java.util.List;
  * @author ebest
  */
 @Service
-public class PersonService implements IPerson{
+public class PersonService implements IPerson {
 
     @Autowired
     private PersonMapper personMapper;
@@ -27,7 +28,7 @@ public class PersonService implements IPerson{
     }
 
     @Override
-    public List<Store> getListStoreByCity(String city){
+    public List<Store> getListStoreByCity(String city) {
 
         return personMapper.getListStoreByCity(city);
     }
@@ -45,9 +46,15 @@ public class PersonService implements IPerson{
     }
 
     @Override
-    public List<Person> getListPersonAll(){
+    public List<Person> getListPersonAll() {
 
         return personMapper.getListPersonAll();
     }
-}
 
+    @Override
+    public List<Store> getRoutLineByUsers(String user_code) {
+
+        return personMapper.getRoutLineByUsers(PersonUtil.getFormatSplit(user_code));
+    }
+
+}

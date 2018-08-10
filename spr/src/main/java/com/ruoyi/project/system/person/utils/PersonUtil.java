@@ -10,6 +10,23 @@ package com.ruoyi.project.system.person.utils;
 public class PersonUtil {
 
     /**
+     * 通过传入参数拼接SQL的in字符串
+     * @param str
+     * @return
+     */
+    public static String getFormatSplit(String str){
+
+        String format_str="";
+        String[] str_arr = str.split("\\,");
+
+        for (String format: str_arr){
+
+            format_str += "'"+format+"'"+",";
+        }
+        return format_str.substring(0, format_str.length()-1);
+    }
+
+    /**
      * 计算距离sql
      * @param x1  源点x
      * @param y1  源点y
